@@ -1,0 +1,34 @@
+appId: com.blinkkey.app
+productName: BlinkKey
+directories:
+  output: release
+  buildResources: assets
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - assets/**/*
+  - node_modules/**/*
+  - package.json
+extraResources:
+  - from: extraResources/
+    to: extraResources/
+    filter:
+      - "**/*"
+win:
+  target:
+    - target: portable
+      arch:
+        - x64
+    - target: nsis
+      arch:
+        - x64
+  icon: assets/icon.ico
+  artifactName: "${productName}-${version}-${os}-${arch}.${ext}"
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+portable:
+  artifactName: "${productName}-Portable-${version}.${ext}"

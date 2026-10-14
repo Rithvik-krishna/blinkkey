@@ -1,0 +1,106 @@
+:root {
+  --bg-main: #0B0F1C;
+  --bg-surface: #121827;
+  --bg-card: #182234;
+  --bg-card-hover: #1F2C42;
+  --border-subtle: #243046;
+  --border-focus: #3B82F6;
+  --accent-primary: #3B82F6;
+  --accent-primary-hover: #2563EB;
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --text-muted: #64748B;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-led: #EF4444;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  height: 100vh;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}
+
+/* Keycap styling */
+.keycap-container {
+  perspective: 600px;
+}
+
+.keycap {
+  position: relative;
+  width: 140px;
+  height: 90px;
+  background: linear-gradient(145deg, #1f293d, #141b29);
+  border: 1px solid #334155;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 14px;
+  transition: all 0.15s ease;
+}
+
+.keycap.active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border-color: #3b82f6;
+}
+
+.keycap-led {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #451a1a;
+  border: 1px solid #2d1010;
+  transition: all 0.1s ease;
+  box-shadow: none;
+}
+
+.keycap-led.on {
+  background-color: #ff3333;
+  border-color: #ff8888;
+  box-shadow: 0 0 12px 3px rgba(255, 50, 50, 0.9), 0 0 4px 1px #fff;
+}
+
+/* Animations */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 1.5s infinite ease-in-out;
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
+}

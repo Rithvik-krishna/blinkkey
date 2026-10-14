@@ -1,0 +1,35 @@
+{
+  "name": "blinkkey",
+  "version": "1.0.0",
+  "description": "AI-powered MCQ assistant with keyboard LED signaling",
+  "author": "BlinkKey Team",
+  "main": "dist-electron/electron/main.js",
+  "scripts": {
+    "dev:react": "vite",
+    "build:react": "vite build",
+    "build:electron": "tsc -p tsconfig.electron.json",
+    "build:helper": "node scripts/build-helper.js",
+    "build": "npm run build:react && npm run build:electron && npm run build:helper",
+    "dev": "concurrently -k \"npm run dev:react\" \"wait-on tcp:5173 && npm run build:electron && electron .\"",
+    "pack:portable": "npm run build && electron-builder --win portable"
+  },
+  "dependencies": {
+    "koffi": "^3.3.3",
+    "lucide-react": "^1.16.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
+    "wait-on": "^7.2.0"
+  }
+}
